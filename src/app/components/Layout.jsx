@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import Navbar from './Navbar';
@@ -21,12 +21,29 @@ const Layout = ({ children }) => {
         overflow: 'hidden',
       }}
     >
-      <Navbar />
+      {/* Navbar stays on top */}
+      <Box sx={{ position: 'relative', zIndex: 10 }}>
+        <Navbar />
+      </Box>
 
-      {/* Render background icons only on client */}
-      {mounted && <BackgroundIcons />}
+      {/* Background icons behind everything */}
+      {mounted && (
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 1, // behind navbar and children
+          }}
+        >
+          <BackgroundIcons />
+        </Box>
+      )}
 
-      <Box sx={{ position: 'relative', zIndex: 1 }}>
+      {/* Main content (children) */}
+      <Box sx={{ position: 'relative', zIndex: 5, padding: 2 }}>
         {children}
       </Box>
     </Box>
