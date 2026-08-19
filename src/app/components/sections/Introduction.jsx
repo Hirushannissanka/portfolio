@@ -13,7 +13,7 @@ const roles = [
 const socialLinks = [
   { icon: <FaGithub size={22} />, url: 'https://github.com/Hirushannissanka', label: 'GitHub' },
   { icon: <FaLinkedin size={22} />, url: 'https://www.linkedin.com/in/hansaka-hirushan-2b98422b7', label: 'LinkedIn' },
-  { icon: <FaEnvelope size={22} />, url: '', label: 'Email' }
+  //{ icon: <FaEnvelope size={22} />, url: '', label: 'Email' }
   
 ];
 
