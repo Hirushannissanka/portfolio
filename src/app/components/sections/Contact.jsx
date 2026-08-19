@@ -14,8 +14,8 @@ import {
 } from '@mui/material';
 import { Send, CheckCircleOutline } from '@mui/icons-material';
 
-// Replace with your preferred recipient email address
-const RECIPIENT_EMAIL = 'hansaka@example.com';
+
+const RECIPIENT_EMAIL = 'hirushannissanka22@gmail.com';
 
 const labelSx = {
   color: '#CBD5E1',

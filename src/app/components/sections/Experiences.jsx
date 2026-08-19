@@ -10,6 +10,7 @@ import 'aos/dist/aos.css';
 import BOC from './asserts/BOC-pic.jpg';
 import RTL from './asserts/RTL-pic.jpg';
 import Reboot from './asserts/Reboot-pic.jpg';
+import cryptX from './asserts/cryptX-pic.jpg';
 const Experiences = () => {
   const experiences = [
     {
@@ -36,6 +37,15 @@ const Experiences = () => {
       organization: "IEEE Student Branch USJ",
       Event:"Reeboot",
       image: Reboot,
+      description: "Led and coordinated the logistics team, overseeing venue arrangements, technical setup, and operational planning to ensure successful execution of the event.",
+      skills: ["Leadership", "Event Logistics", "Team Coordination", "Operational Planning"]
+    },
+    {
+      id: 4,
+      position: "Logistic Team Head",
+      organization: "ICTS",
+      Event:"CryptX 2.0",
+      image: cryptX,
       description: "Led and coordinated the logistics team, overseeing venue arrangements, technical setup, and operational planning to ensure successful execution of the event.",
       skills: ["Leadership", "Event Logistics", "Team Coordination", "Operational Planning"]
     }

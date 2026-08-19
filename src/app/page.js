@@ -6,6 +6,7 @@ import Education from './components/sections/Education'
 import Projects from './components/sections/Projects'
 import Experiences from './components/sections/Experiences'
 import Contact from './components/sections/Contact'
+import Achievements from './components/sections/Achievements'
 
 export default function page() {
   return (
@@ -15,6 +16,7 @@ export default function page() {
       <Projects />
       <Experiences />
       <Education />
+      <Achievements/>
       <Contact />
     </Layout>
 
