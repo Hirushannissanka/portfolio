@@ -5,6 +5,7 @@ import Skills from './components/sections/Skills'
 import Education from './components/sections/Education'
 import Projects from './components/sections/Projects'
 import Experiences from './components/sections/Experiences'
+import Contact from './components/sections/Contact'
 
 export default function page() {
   return (
@@ -14,6 +15,7 @@ export default function page() {
       <Projects />
       <Experiences />
       <Education />
+      <Contact />
     </Layout>
 
   )

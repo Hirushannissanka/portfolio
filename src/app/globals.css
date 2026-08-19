@@ -54,3 +54,15 @@ a {
     transform: scale(0.95);
   }
 }
+.floating-icon {
+  position: absolute;
+  pointer-events: none;
+  animation: breath 4s ease-in-out infinite;
+  will-change: opacity, transform;
+  contain: layout style paint; /* isolate each icon's paint/layout work */
+}
+
+@keyframes breath {
+  0%, 100% { transform: scale(1); opacity: var(--icon-opacity, 1); }
+  50% { transform: scale(1.15); opacity: calc(var(--icon-opacity, 1) * 0.6); }
+}

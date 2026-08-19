@@ -1,13 +1,20 @@
 'use client'
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography,IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import profilePic from './asserts/profile-pic.jpg';
+import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from 'react-icons/fa';
 
 const roles = [
   'Fullstack Developer',
   '3rd Year Undergraduate',
   'DevOps and ML Enthusiast'
+];
+const socialLinks = [
+  { icon: <FaGithub size={22} />, url: 'https://github.com/Hirushannissanka', label: 'GitHub' },
+  { icon: <FaLinkedin size={22} />, url: 'https://www.linkedin.com/in/hansaka-hirushan-2b98422b7', label: 'LinkedIn' },
+  { icon: <FaEnvelope size={22} />, url: '', label: 'Email' }
+  
 ];
 
 const Introduction = () => {
@@ -150,6 +157,42 @@ const Introduction = () => {
             I am a 3rd-year undergraduate and aspiring Fullstack Developer with a strong interest in DevOps and Machine Learning. 
             I love learning new technologies, solving challenging problems, and developing projects that make an impact.
           </Typography>
+           {/* Social Links */}
+          <Stack
+            direction="row"
+            spacing={2}
+            alignItems="center"
+            justifyContent={{ xs: 'center', md: 'flex-start' }}
+            sx={{ pt: 2.5 }}
+          >
+            {socialLinks.map((social, idx) => (
+              <IconButton
+                key={idx}
+                component="a"
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                sx={{
+                  color: '#94A3B8',
+                  backgroundColor: '#161B2A',
+                  border: '1px solid #23283A',
+                  p: 1.5,
+                  borderRadius: 2.5,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    color: '#3B82F6',
+                    borderColor: '#3B82F6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 8px 20px rgba(59, 130, 246, 0.2)'
+                  }
+                }}
+              >
+                {social.icon}
+              </IconButton>
+            ))}
+          </Stack>
         </Stack>
       </Stack>
     </Box>

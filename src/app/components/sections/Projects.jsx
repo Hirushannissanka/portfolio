@@ -152,21 +152,11 @@ const Projects = () => {
 
                 {/* Buttons */}
                 <Stack direction="row" spacing={2}>
-                  <Button
-                    variant="contained"
-                    sx={{
-                      backgroundColor: '#3B82F6',
-                      textTransform: 'none',
-                      '&:hover': {
-                        backgroundColor: '#2563EB'
-                      }
-                    }}
-                  >
-                    Live Demo
-                  </Button>
+                  
 
                   <Button
                     variant="outlined"
+                    suppressHydrationWarning
                     sx={{
                       borderColor: '#3B82F6',
                       color: '#3B82F6',

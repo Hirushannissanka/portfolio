@@ -1,38 +1,45 @@
 'use client';
-import React, { useState } from 'react';
-import { AppBar, Toolbar, Button, Box, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import React from 'react';
+import { AppBar, Toolbar, Button, Box, Paper, BottomNavigation, BottomNavigationAction } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import CodeIcon from '@mui/icons-material/Code';
+import WorkIcon from '@mui/icons-material/Work';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import SchoolIcon from '@mui/icons-material/School';
+import EmailIcon from '@mui/icons-material/Email';
 import Link from 'next/link';
-import { ListItemButton } from '@mui/material';
+
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [value, setValue] = React.useState(0);
 
   const navItems = [
-    { label: 'Home', href: '#introduction' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '#introduction', icon: <HomeIcon /> },
+    { label: 'Skills', href: '#skills', icon: <CodeIcon /> },
+    { label: 'Projects', href: '#projects', icon: <WorkIcon /> },
+    
+    { label: 'Education', href: '#education', icon: <SchoolIcon /> },
+    { label: 'Contact', href: '#contact', icon: <EmailIcon /> },
   ];
+
   return (
     <Box>
-      <AppBar position="fixed" sx={{
-        backgroundColor: 'rgba(255,255,255,0.1)',
-        backdropFilter: 'blur(10px)',
-        boxShadow: 'none',
-        borderRadius: '20px',
-        width: { xs: '95%', md: '85%' },
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: 20,
-
-
-      }}>
+      {/* Desktop Top Navbar */}
+      <AppBar
+        position="fixed"
+        sx={{
+          display: { xs: 'none', md: 'flex' },
+          backgroundColor: 'rgba(255,255,255,0.1)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: 'none',
+          borderRadius: '20px',
+          width: '85%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: 20,
+        }}
+      >
         <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}>
-
-
-
-          {/* Desktop Links */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3 }}>
+          <Box sx={{ display: 'flex', gap: 3 }}>
             {navItems.map((item) => (
               <Button
                 key={item.label}
@@ -47,54 +54,66 @@ const Navbar = () => {
               </Button>
             ))}
           </Box>
-
-          {/* Mobile Hamburger */}
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, flexGrow: 1, justifyContent: 'flex-start' }}>
-            <IconButton
-              color="inherit"
-              edge="end"
-              sx={{ display: { xs: 'flex', md: 'none' } }}
-              onClick={() => setOpen(true)}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Box>
         </Toolbar>
       </AppBar>
 
-      {/* Mobile Drawer */}
-      <Drawer
-        anchor="top"
-        open={open} onClose={() => setOpen(false)}
-        PaperProps={{
-          sx: {
-            backgroundColor: 'rgba(15, 23, 42, 0.95)',
-            backdropFilter: 'blur(10px)',
-            color: 'white',
-            height: 'auto',
-            minHeight: 150,
-            maxHeight: '50vh',
-          },
-        }}>
-        <List sx={{ width: 200 }}>
-          {navItems.map((item) => (
-            <ListItem key={item.label} disablePadding>
-              <ListItemButton
-                component={Link}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                sx={{
-                  color: 'inherit',
-                  textDecoration: 'none',
-                  '&:hover': { backgroundColor: 'rgba(255,255,255,0.08)' },
-                }}
-              >
-                <ListItemText primary={item.label} />
-              </ListItemButton>
-            </ListItem>
+      {/* Mobile Bottom Navigation with Icons */}
+      <Paper
+        sx={{
+          position: 'fixed',
+          bottom: 12,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '92%',
+          maxWidth: '500px',
+          zIndex: 1300,
+          display: { xs: 'block', md: 'none' },
+          borderRadius: '24px',
+          backgroundColor: 'rgba(15, 23, 42, 0.85)',
+          backdropFilter: 'blur(12px)',
+          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+          border: '1px solid rgba(255, 255, 255, 0.12)',
+          overflow: 'hidden',
+        }}
+        elevation={6}
+      >
+        <BottomNavigation
+          showLabels
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          sx={{
+            backgroundColor: 'transparent',
+            height: '64px',
+            '& .MuiBottomNavigationAction-root': {
+              color: 'rgba(255, 255, 255, 0.6)',
+              minWidth: 'auto',
+              padding: '6px 0',
+              '&.Mui-selected': {
+                color: '#3B82F6',
+              },
+              '& .MuiBottomNavigationAction-label': {
+                fontSize: '0.7rem',
+                '&.Mui-selected': {
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                },
+              },
+            },
+          }}
+        >
+          {navItems.map((item, index) => (
+            <BottomNavigationAction
+              key={item.label}
+              label={item.label}
+              icon={item.icon}
+              component={Link}
+              href={item.href}
+            />
           ))}
-        </List>
-      </Drawer>
+        </BottomNavigation>
+      </Paper>
     </Box>
   );
 };
