@@ -1,9 +1,9 @@
 'use client'
-import { Box, Stack, Typography,IconButton } from '@mui/material';
+import { Box, Stack, Typography, IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import profilePic from './asserts/profile-pic.jpg';
-import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const roles = [
   'Fullstack Developer',

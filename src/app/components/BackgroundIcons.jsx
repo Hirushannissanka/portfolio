@@ -10,7 +10,7 @@ import {
 const iconComponents = [
   FaGithub, FaLinux, FaJava, FaGitAlt, FaDocker,
   FaPython, FaNodeJs, FaPhp, FaHtml5,
-  FaCss3Alt, FaJsSquare, FaReact
+   FaJsSquare, FaReact
 ];
 
 // Grid + jitter layout so icons spread evenly instead of clumping,
